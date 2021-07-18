@@ -1,0 +1,2 @@
+## spring spi 读取自定义环境变量
+org.springframework.boot.env.EnvironmentPostProcessor=com.wjy.springbootdemo.config.CustomEnvironmentPostProcessor
