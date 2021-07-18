@@ -1,5 +1,5 @@
 # easy-code
-收集代码片段，忘记细节的时候可以查找使用
+代码片段收集
 
 ## springboot使用
 + 异步线程@Async
