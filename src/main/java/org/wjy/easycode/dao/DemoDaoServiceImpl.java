@@ -1,9 +1,9 @@
 package org.wjy.easycode.dao;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.wjy.springbootdemo.pojo.entity.DemoEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.wjy.easycode.pojo.entity.DemoEntity;
 
 /**
  * mybatis-plus IService使用，以继承的形式扩展功能，提供通用接口

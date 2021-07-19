@@ -1,6 +1,5 @@
 package org.wjy.easycode.controller;
 
-import com.wjy.springbootdemo.config.CustomProperties;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.wjy.easycode.config.CustomProperties;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -50,14 +50,14 @@ public class EnvPropertiesController implements InitializingBean {
     }
 
     // 获取自定义配置文件的变量值
-    /** @see com.wjy.springbootdemo.config.CustomProperties */
+    /** @see org.wjy.easycode.config.CustomProperties */
     @GetMapping(value = "/properties")
     public String getPropVal() {
         return ctmProperties.getVal();
     }
 
     // 获取环境变量的值
-    /** @see com.wjy.springbootdemo.config.CustomEnvironmentPostProcessor */
+    /** @see org.wjy.easycode.config.CustomEnvironmentPostProcessor */
     @GetMapping(value = "/env")
     public String getEnvVal() {
         return env.getProperty("ctm.env.val");

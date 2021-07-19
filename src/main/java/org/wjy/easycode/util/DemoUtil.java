@@ -1,7 +1,7 @@
 package org.wjy.easycode.util;
 
-import com.wjy.springbootdemo.config.SpringBeanUtil;
-import com.wjy.springbootdemo.dao.DemoDaoServiceImpl;
+import org.wjy.easycode.config.SpringBeanUtil;
+import org.wjy.easycode.dao.DemoDaoServiceImpl;
 
 public class DemoUtil {
 

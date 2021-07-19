@@ -25,8 +25,8 @@ public class Swagger3Config {
                 .apiInfo(apiInfo())
                 .select()
                 .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class)) // 扫描全部ApiOperation声明的接口
-//                .apis(RequestHandlerSelectors.basePackage("com.wjy.xx2.xxx").or(
-//                        RequestHandlerSelectors.basePackage("com.wjy.xx1.xxx")
+//                .apis(RequestHandlerSelectors.basePackage("org.wjy.xx2.xxx").or(
+//                        RequestHandlerSelectors.basePackage("org.wjy.xx1.xxx")
 //                )) // 按指定包名扫描，在不同包下可用or连接，展示需要暴露的接口
                 .paths(PathSelectors.any())
                 .build();

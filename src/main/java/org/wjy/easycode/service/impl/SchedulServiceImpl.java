@@ -9,8 +9,8 @@ import java.util.Date;
 /**
  * 使用@EnableScheduling声明启用springboot定时任务。如果不配置，默认单线程顺序执行所有定时任务
  * 使用@EnableAsync声明启用springboot自带的异步线程池
- * @see com.wjy.springbootdemo.config.ScheduleConfig
- * @see com.wjy.springbootdemo.config.ControlSchedulingConfiguration
+ * @see org.wjy.easycode.config.ScheduleConfig
+ * @see org.wjy.easycode.config.ControlSchedulingConfiguration
  */
 @Service
 public class SchedulServiceImpl {

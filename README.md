@@ -7,6 +7,7 @@
 + 自定义配置文件
 + @Value读取复杂类型配置
 + 使用EnvironmentPostProcessor读取自定义环境变量
++ 使用@Aspect实现方法debug日志输出
 
 ## 整合第三方组件
 + 生成Swagger3接口文档

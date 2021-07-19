@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @EnableTransactionManagement // 启用事务
 @Configuration
-@MapperScan("com.wjy.springbootdemo.dao") // 扫描dao接口包名
+@MapperScan("org.wjy.easycode.dao") // 扫描dao接口包名
 public class MybatisPlusConfig {
 
     @Bean

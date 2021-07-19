@@ -1,13 +1,13 @@
 package org.wjy.easycode.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.wjy.springbootdemo.pojo.vo.JsonFmtReq;
-import com.wjy.springbootdemo.pojo.vo.JsonFmtRsp;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.wjy.easycode.pojo.vo.JsonFmtReq;
+import org.wjy.easycode.pojo.vo.JsonFmtRsp;
 
 import java.util.Date;
 

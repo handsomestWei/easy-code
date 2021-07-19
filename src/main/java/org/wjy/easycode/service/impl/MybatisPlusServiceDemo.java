@@ -1,8 +1,8 @@
 package org.wjy.easycode.service.impl;
 
-import com.wjy.springbootdemo.dao.IDemoDaoService;
-import com.wjy.springbootdemo.pojo.entity.DemoEntity;
 import org.springframework.stereotype.Service;
+import org.wjy.easycode.dao.IDemoDaoService;
+import org.wjy.easycode.pojo.entity.DemoEntity;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;

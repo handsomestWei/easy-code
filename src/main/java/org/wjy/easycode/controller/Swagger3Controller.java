@@ -1,6 +1,5 @@
 package org.wjy.easycode.controller;
 
-import com.wjy.springbootdemo.pojo.vo.SwaggerRsp;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.wjy.easycode.pojo.vo.SwaggerRsp;
 import springfox.documentation.annotations.ApiIgnore;
 
 import java.util.Map;

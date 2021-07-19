@@ -1,6 +1,7 @@
 package org.wjy.easycode.enums;
 
-import com.wjy.springbootdemo.service.IRspCode;
+
+import org.wjy.easycode.service.IRspCode;
 
 public enum RspCodeEnum implements IRspCode {
 

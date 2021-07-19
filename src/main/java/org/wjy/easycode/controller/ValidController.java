@@ -1,12 +1,12 @@
 package org.wjy.easycode.controller;
 
-import com.wjy.springbootdemo.enums.RspCodeEnum;
-import com.wjy.springbootdemo.pojo.vo.BaseRsp;
-import com.wjy.springbootdemo.pojo.vo.ValidReq;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.wjy.easycode.enums.RspCodeEnum;
+import org.wjy.easycode.pojo.vo.BaseRsp;
+import org.wjy.easycode.pojo.vo.ValidReq;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;

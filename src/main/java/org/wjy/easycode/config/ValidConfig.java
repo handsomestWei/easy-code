@@ -12,7 +12,7 @@ import javax.validation.ValidatorFactory;
 /**
  * 参数校验配置
  * 依赖spring-boot-starter-validation
- * @see com.wjy.springbootdemo.config.ValidGlobalExceptionHandler
+ * @see org.wjy.easycode.config.ValidGlobalExceptionHandler
  */
 @Configuration
 public class ValidConfig {
