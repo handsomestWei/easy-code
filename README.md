@@ -1,5 +1,5 @@
 # easy-code
-代码片段收集
+CURD boy常用代码片段，让搬砖不再困难
 
 ## springboot使用
 + 异步线程@Async
