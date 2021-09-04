@@ -7,6 +7,8 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>easy-code</name>
     <description>easy code</description>
+    <!-- 默认jar包部署，打成war包需要加以下配置 -->
+<!--    <packaging>war</packaging>-->
 
     <properties>
         <java.version>1.8</java.version>
@@ -16,6 +18,20 @@
     </properties>
 
     <dependencies>
+            <!-- 引用第三方私有包且maven仓库没有。常见内置变量如${project.xxx} -->
+<!--        <dependency>-->
+<!--            <groupId>ctec</groupId>-->
+<!--            <artifactId>xxx-core</artifactId>-->
+<!--            <version>1.0</version>-->
+<!--            <scope>system</scope>-->
+<!--            <systemPath>${basedir}/libs/ctec-xxx-core.jar</systemPath>-->
+<!--        </dependency>-->
+        <!-- 打成war包时需要移除嵌入式tomcat插件 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -129,6 +145,8 @@
                 <version>2.3.7.RELEASE</version>
                 <configuration>
                     <mainClass>org.wjy.easycode.EasycodeApplication</mainClass>
+                    <!-- 生成war包时包含本地私有jar包 -->
+                    <includeSystemScope>true</includeSystemScope>
                 </configuration>
                 <executions>
                     <execution>
