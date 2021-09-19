@@ -1,0 +1,45 @@
+package org.wjy.easycode.util;
+
+import java.io.File;
+import java.io.IOException;
+
+/**
+ * 资源目录工具类
+ */
+public class ResourcePathUtil {
+
+    // 获取类运行时所属jar包路径。用于定位是否包冲突
+    public static String getRunTimeJarPath(Class clazz) {
+        return clazz.getProtectionDomain().getCodeSource().getLocation().getFile();
+    }
+
+    // 获取类加载的根路径
+    public static String getClassRootPath(Class clazz) {
+        return clazz.getResource("/").getPath();
+    }
+
+    // 获取类所在项目路径
+    public static String getClassProjectPath(Class clazz) {
+        return clazz.getResource("").getPath();
+    }
+
+    // 获取当前项目class路径
+    public static String getCurrentClassPath(Class clazz) {
+        return clazz.getClassLoader().getResource("").getPath();
+    }
+
+    // 获取项目路径
+    public static String getProjectPathV1() throws IOException {
+        return new File("").getCanonicalPath();
+    }
+
+    // 获取项目路径
+    public static String getProjectPathV2() {
+        return System.getProperty("user.dir");
+    }
+
+    // 获取所有class路径
+    public static String getAllClassPath() {
+        return System.getProperty("java.class.path");
+    }
+}
