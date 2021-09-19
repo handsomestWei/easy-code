@@ -15,10 +15,15 @@ curd代码缝合怪常用代码片段，轻松搬砖
 + 参数校验Hibernate Validator
 + fastjson各注解
 + mybatis-plus
++ google二维码工具库
 
-## 其他
+## maven
 + war打包配置
 + 打包含有第三方本地私有jar
+
+## 脚本
++ 根据swagger接口描述json文件，使用swagger-codegen-cli反向生成对象
++ liquibase数据库变更脚本
 
 ## TODO
 + assembly拆包thin jar脚本
