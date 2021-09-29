@@ -17,13 +17,14 @@ curd代码缝合怪常用代码片段，轻松搬砖
 + mybatis-plus
 + google二维码工具库
 
-## maven
+## 打包
 + war打包配置
 + 打包含有第三方本地私有jar
++ 使用spring-boot-thin-layout打thin jar
++ 使用maven-assembly-plugin脚本打包
 
 ## 脚本
 + 根据swagger接口描述json文件，使用swagger-codegen-cli反向生成对象
 + liquibase数据库变更脚本
 
 ## TODO
-+ assembly拆包thin jar脚本

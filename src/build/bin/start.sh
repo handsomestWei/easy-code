@@ -1,0 +1,1 @@
+java -Dloader.path="libs/" -jar easy-code.jar
