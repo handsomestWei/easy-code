@@ -1,0 +1,57 @@
+1. env.sh
+
+#!/bin/sh
+export SERVER="stest-service"
+export SERVER_PORT="12222"
+
+. ${NGSOC_INSTALL_PATH}/bin/shell/set-env.sh
+
+================================================================================
+2. start.sh
+
+#!/bin/sh
+
+export BASE_DIR=`cd $(dirname $0)/..; pwd`
+
+. ${BASE_DIR}/bin/env.sh
+
+pid=`ps -ef | grep java | grep ${SERVER} | grep -v grep | awk '{print $2}'`
+if [ "$pid" ] ; then
+    echo "${SERVER} running."
+    exit -1;
+fi
+
+nohup java -Xms2048m -Xmx2048m -jar ${BASE_DIR}/${SERVER}.jar > /dev/null 2>&1 &
+
+count=0
+result=`ss -ntlp | grep ${SERVER_PORT}`
+while [ -z "$result" ]; do
+    if [ $count -eq 60 ];then
+        echo "${SERVER} Start Failed,"
+        exit -1
+    fi
+        count=`expr $count + 1`
+    sleep 1
+    result=`ss -ntlp | grep ${SERVER_PORT}`
+done
+echo "${SERVER} Started Successfully"
+
+===============================================================================
+
+3. stop.sh
+
+#!/bin/sh
+
+export BASE_DIR=`cd $(dirname $0)/..; pwd`
+
+. ${BASE_DIR}/bin/env.sh
+
+pid=`ps -ef | grep java | grep ${SERVER} | grep -v grep | awk '{print $2}'`
+if [ -z "$pid" ] ; then
+    echo "No ${SERVER} running."
+    exit -1;
+fi
+echo "The ${SERVER}(${pid}) is running..."
+kill ${pid}
+echo "Send shutdown request to ${SERVER}(${pid}) OK"
+
