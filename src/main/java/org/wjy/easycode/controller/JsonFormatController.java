@@ -1,7 +1,7 @@
 package org.wjy.easycode.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.extern.slf4j.Slf4j;
+import java.util.Date;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.wjy.easycode.pojo.vo.JsonFmtReq;
 import org.wjy.easycode.pojo.vo.JsonFmtRsp;
 
-import java.util.Date;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * request body json格式化处理
@@ -38,6 +41,13 @@ public class JsonFormatController {
     public Object jsonFormat2() {
         String[] list = {"asd", "qwe", "ccc"};
         return list;
-//        return JSON.toJSONString(list);
+        // return JSON.toJSONString(list);
+    }
+
+    // 使用Gson原样转换保留字段大小写
+    @GetMapping(value = "/fmt3", produces = "application/json")
+    public Object jsonFormat3(@RequestBody String req) {
+        JsonFmtReq reqObj = new Gson().fromJson(req, JsonFmtReq.class);
+        return reqObj;
     }
 }

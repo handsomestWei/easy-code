@@ -1,15 +1,16 @@
 package org.wjy.easycode.pojo.vo;
 
+import java.util.Date;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.Accessors;
-
-import java.util.Date;
 
 @JsonIgnoreProperties // json字符串转pojo时忽略不存在的字段。有时字符串里的字段，在声明的pojo里没有，会抛转换异常
 @Accessors(chain = true) // 支持链式调用
@@ -29,5 +30,8 @@ public class JsonFmtReq extends BaseReq {
     // json时间格式字符串，转pojo时间对象
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date startTime;
+
+    // 报文字段首字母大写
+    private String RealName;
 
 }
