@@ -13,9 +13,9 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-import org.wjy.easycode.pojo.dto.ServiceCentre;
-import org.wjy.easycode.pojo.dto.ServiceCentreRequest;
-import org.wjy.easycode.pojo.dto.ServiceResult;
+import org.wjy.easycode.demo.pojo.dto.ServiceCentre;
+import org.wjy.easycode.demo.pojo.dto.ServiceCentreRequest;
+import org.wjy.easycode.demo.pojo.dto.ServiceResult;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.core.JsonProcessingException;

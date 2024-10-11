@@ -1,4 +1,4 @@
-package org.wjy.easycode.config;
+package org.wjy.easycode.demo.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

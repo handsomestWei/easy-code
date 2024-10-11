@@ -1,14 +1,15 @@
-package org.wjy.easycode.config;
+package org.wjy.easycode.demo.config;
 
-import lombok.Data;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
-import org.wjy.easycode.pojo.vo.DemoProp;
+import org.wjy.easycode.demo.pojo.vo.DemoProp;
 
-import java.util.List;
-import java.util.Map;
+import lombok.Data;
 
 /**
  * 自定义配置文件

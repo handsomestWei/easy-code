@@ -1,11 +1,12 @@
-package org.wjy.easycode.controller;
+package org.wjy.easycode.demo.controller;
 
-import lombok.extern.slf4j.Slf4j;
+import java.io.UnsupportedEncodingException;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.UnsupportedEncodingException;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController("/api/v1/chinese")
@@ -26,12 +27,12 @@ public class RspGarbledChineseController {
     public String getMsg2() throws UnsupportedEncodingException {
         // springboot对于yaml文件是utf-8编码读取
         // springboot对于properties文件默认是iso-8859-1编码读取，因此可以转换为字节数组，再编码
-        return new String(msg.getBytes("iso-8859-1"),"GBK");
+        return new String(msg.getBytes("iso-8859-1"), "GBK");
     }
 
     @GetMapping("/garbled3")
     public String getMsg3() throws UnsupportedEncodingException {
         // 不能转换为utf-8，因为编码格式不兼容，iso-8859-1是utf-8的字集，utf-8范围更大，不能向上转换
-        return new String(msg.getBytes("iso-8859-1"),"utf-8"); // 仍然返回乱码
+        return new String(msg.getBytes("iso-8859-1"), "utf-8"); // 仍然返回乱码
     }
 }

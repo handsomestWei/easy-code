@@ -1,12 +1,12 @@
-package org.wjy.easycode.util;
+package org.wjy.easycode.demo.util;
 
-import org.wjy.easycode.config.SpringBeanUtil;
-import org.wjy.easycode.dao.DemoDaoServiceImpl;
+import org.wjy.easycode.demo.dao.DemoDaoServiceImpl;
+import org.wjy.easycode.util.SpringBeanUtil;
 
 public class DemoUtil {
 
     // static方法内使用变量，变量必须也是static
-//    private DemoDaoServiceImpl tagBean;
+    // private DemoDaoServiceImpl tagBean;
     private static DemoDaoServiceImpl tagBean;
 
     static {

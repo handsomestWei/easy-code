@@ -1,4 +1,4 @@
-package org.wjy.easycode.pojo.dto;
+package org.wjy.easycode.demo.pojo.dto;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;

@@ -1,9 +1,9 @@
-package org.wjy.easycode.pojo.mapstruct;
+package org.wjy.easycode.demo.pojo.mapstruct;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
-import org.wjy.easycode.pojo.dto.MapstructDto;
-import org.wjy.easycode.pojo.vo.MapstructVo;
+import org.wjy.easycode.demo.pojo.dto.MapstructDto;
+import org.wjy.easycode.demo.pojo.vo.MapstructVo;
 
 /**
  * 对象转换，可用在DDD领域驱动模型编程。能隐藏dao层数据，只将必要字段返回controller

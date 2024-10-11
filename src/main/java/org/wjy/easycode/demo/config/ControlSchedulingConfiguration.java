@@ -1,4 +1,4 @@
-package org.wjy.easycode.config;
+package org.wjy.easycode.demo.config;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.context.annotation.Configuration;
@@ -9,5 +9,4 @@ import org.springframework.scheduling.annotation.SchedulingConfiguration;
 @Configuration
 @ConditionalOnExpression(value = "${enable.scheduling:true}")
 @Import(SchedulingConfiguration.class)
-public class ControlSchedulingConfiguration {
-}
+public class ControlSchedulingConfiguration {}

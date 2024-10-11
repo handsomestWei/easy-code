@@ -1,7 +1,8 @@
-package org.wjy.easycode.service;
+package org.wjy.easycode.demo.service;
 
 public interface IRspCode {
 
     String getCode();
+
     String getMsg();
 }

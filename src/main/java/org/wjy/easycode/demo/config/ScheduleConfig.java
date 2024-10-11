@@ -1,6 +1,7 @@
-package org.wjy.easycode.config;
+package org.wjy.easycode.demo.config;
 
-import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import java.util.concurrent.*;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +13,7 @@ import org.springframework.scheduling.annotation.SchedulingConfigurer;
 import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 import org.springframework.scheduling.config.TaskManagementConfigUtils;
 
-import java.util.concurrent.*;
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
 /**
  * 启用定时任务，并配置@Scheduled线程池
@@ -39,21 +40,25 @@ public class ScheduleConfig implements SchedulingConfigurer {
 
     @Override
     public void configureTasks(ScheduledTaskRegistrar scheduledTaskRegistrar) {
-        scheduledTaskRegistrar.setScheduler(getExecutor(corePoolSize,maxPoolSize,keepAliveSeconds));
+        scheduledTaskRegistrar.setScheduler(getExecutor(corePoolSize, maxPoolSize, keepAliveSeconds));
     }
 
     /**
      * 获取线程池
      *
-     * @param corePoolSize     最小线程数
-     * @param maxPoolSize      最大线程数
-     * @param keepAliveSeconds 允许空闲时间(秒)
+     * @param corePoolSize
+     *            最小线程数
+     * @param maxPoolSize
+     *            最大线程数
+     * @param keepAliveSeconds
+     *            允许空闲时间(秒)
      * @return 返回队列
      */
     protected ScheduledExecutorService getExecutor(int corePoolSize, int maxPoolSize, long keepAliveSeconds) {
         // 线程名称
         ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("schedule-pool-%d").build();
-        ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(corePoolSize, namedThreadFactory, new ThreadPoolExecutor.CallerRunsPolicy());
+        ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(corePoolSize, namedThreadFactory,
+            new ThreadPoolExecutor.CallerRunsPolicy());
         // 最小线程数
         executor.setCorePoolSize(corePoolSize);
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());

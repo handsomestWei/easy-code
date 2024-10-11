@@ -1,10 +1,11 @@
-package org.wjy.easycode.config;
+package org.wjy.easycode.demo.config;
 
-import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
+import java.util.Date;
+
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
+import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 
 /**
  * mybatis-plus自动填充字段创建时间和修改时间
@@ -13,6 +14,7 @@ import java.util.Date;
 public class MyMetaObjectHandler implements MetaObjectHandler {
     /**
      * 插入时的填充策略
+     * 
      * @param metaObject
      */
     @Override
@@ -23,6 +25,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
 
     /**
      * 更新时的填充策略
+     * 
      * @param metaObject
      */
     @Override

@@ -1,4 +1,4 @@
-package org.wjy.easycode.pojo.dto;
+package org.wjy.easycode.demo.pojo.dto;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
-package org.wjy.easycode.pojo.vo;
+package org.wjy.easycode.demo.pojo.vo;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
-import org.wjy.easycode.service.IRspCode;
+import org.wjy.easycode.demo.service.IRspCode;
 
 // restful风格的pojo返回对象
 // 使用泛型

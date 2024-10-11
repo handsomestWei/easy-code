@@ -1,4 +1,4 @@
-package org.wjy.easycode.controller;
+package org.wjy.easycode.demo.controller;
 
 import java.util.Date;
 
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.wjy.easycode.pojo.vo.JsonFmtReq;
-import org.wjy.easycode.pojo.vo.JsonFmtRsp;
+import org.wjy.easycode.demo.pojo.vo.JsonFmtReq;
+import org.wjy.easycode.demo.pojo.vo.JsonFmtRsp;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;

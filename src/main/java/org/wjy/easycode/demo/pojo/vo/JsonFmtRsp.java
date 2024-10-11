@@ -1,4 +1,4 @@
-package org.wjy.easycode.pojo.vo;
+package org.wjy.easycode.demo.pojo.vo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;

@@ -1,7 +1,7 @@
-package org.wjy.easycode.enums;
+package org.wjy.easycode.demo.enums;
 
 
-import org.wjy.easycode.service.IRspCode;
+import org.wjy.easycode.demo.service.IRspCode;
 
 public enum RspCodeEnum implements IRspCode {
 

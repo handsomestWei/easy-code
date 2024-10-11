@@ -1,2 +1,2 @@
-## spring spi ¶ÁÈ¡×Ô¶¨Òå»·¾³±äÁ¿
-org.springframework.boot.env.EnvironmentPostProcessor=org.wjy.easycode.config.CustomEnvironmentPostProcessor
+## spring spi ï¿½ï¿½È¡ï¿½Ô¶ï¿½ï¿½å»·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+org.springframework.boot.env.EnvironmentPostProcessor=org.wjy.easycode.demo.config.CustomEnvironmentPostProcessor

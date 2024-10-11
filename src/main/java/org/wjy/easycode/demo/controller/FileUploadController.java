@@ -1,15 +1,16 @@
-package org.wjy.easycode.controller;
-
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
+package org.wjy.easycode.demo.controller;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 文件上传
@@ -23,7 +24,7 @@ public class FileUploadController {
 
     // 上传单个文件
     // 前端使用<form action="/api/v1/file/upload" method="post" enctype="multipart/form-data">
-    //       <input type="file" name="meFile" /><p>
+    // <input type="file" name="meFile" /><p>
     @PostMapping("/upload")
     public String handleUpload(MultipartFile meFile) {
         String fileName = null;
@@ -41,7 +42,7 @@ public class FileUploadController {
 
     // 上传多个文件
     // 前端使用<form action="/api/v1/file/uploads" method="post" enctype="multipart/form-data">
-    //       <input type="file" name="meFile" multiple="multiple" /><p>
+    // <input type="file" name="meFile" multiple="multiple" /><p>
     @PostMapping("/uploads")
     public List<String> handleUploads(MultipartFile[] meFiles) {
         List<String> fileNames = new ArrayList<>();

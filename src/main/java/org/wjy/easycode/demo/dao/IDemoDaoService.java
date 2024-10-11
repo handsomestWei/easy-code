@@ -1,6 +1,6 @@
-package org.wjy.easycode.dao;
+package org.wjy.easycode.demo.dao;
 
-import org.wjy.easycode.pojo.entity.DemoEntity;
+import org.wjy.easycode.demo.pojo.entity.DemoEntity;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 

@@ -1,12 +1,13 @@
-package org.wjy.easycode.pojo.entity;
+package org.wjy.easycode.demo.pojo.entity;
+
+import java.util.Date;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
+
 import lombok.Data;
 import lombok.experimental.Accessors;
-
-import java.util.Date;
 
 /**
  * 数据库实体类

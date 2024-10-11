@@ -4,17 +4,65 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import javax.imageio.ImageIO;
 
+import org.apache.commons.collections4.CollectionUtils;
+
 /**
- * 图片画框，最好保证图片后缀格式一致
+ * 图片工具类
  * 
  * @author weijiayu
  * @date 2023/5/15 11:59
  */
 public class PicUtil {
+
+    // 合并多张图片并添加文字
+    public static byte[] composePicAndAddText(List<String> picPathList3, List<String> textList5) throws IOException {
+        if (CollectionUtils.isEmpty(picPathList3)) {
+            return null;
+        }
+        // TODO 最多合成3张图片。4张图片要调整为4宫格样式
+        int images = picPathList3.size();
+        images = images > 3 ? 3 : images;
+        // TODO 最多增加5行文字
+        int texts = textList5 == null ? 0 : textList5.size();
+        texts = texts > 5 ? 5 : texts;
+        int width = 4096;
+        int height = 1832;
+        // 1、根据图片区和文字区的高度，自动调整样式。50磅字体高度设定为60px
+        int textHeight = texts * 60;
+        // 2、画图
+        BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+        Graphics2D g2d = bufferedImage.createGraphics();
+        int i = 0;
+        for (String picPath : picPathList3) {
+            File f = new File(picPath);
+            if (!f.exists()) {
+                return null;
+            }
+            BufferedImage bf = ImageIO.read(f);
+            g2d.drawImage(bf, (width / images) * i, textHeight, width / images, height - textHeight, null);
+            i++;
+        }
+        // 3、填字
+        Color color = new Color(255, 0, 0);
+        Font font = new Font("微软雅黑", Font.ITALIC, 50);
+        g2d.setColor(color);
+        g2d.setFont(font);
+        i = 1;
+        for (String text : textList5) {
+            g2d.drawString(text, 0, 60 * i);
+            i++;
+        }
+        g2d.dispose();
+        // 4、转byte[]
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        ImageIO.write(bufferedImage, "jpg", os);
+        return os.toByteArray();
+    }
 
     // 图片画框：原图覆盖
     public static boolean drawBorderWithCover(String fileFullPath, List<List<String>> regionXYList) {

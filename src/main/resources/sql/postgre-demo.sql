@@ -72,3 +72,54 @@ create trigger trig_insert_tb_test
     on tb_favorite_detail
     for each row
     execute procedure auto_insert_into_tb_test_partition('create_time','tb_test');
+
+-- 利用branch字段生成树形区域结构的全路径例：
+-- 1、添加dblink扩展。同时需要在目标数据库使用dba账号添加dblink扩展
+create extension if not exists dblink;
+
+-- 2.1、跨库创建递归视图方案。填入目标数据库连接串
+CREATE OR REPLACE RECURSIVE VIEW v_region (external_index_code, index_code, name, parent_index_code, parent_name, tree_level, tree_path, branch) AS
+SELECT * from dblink('host=10.194.141.76 port=7017 dbname=xxdb user=user password=pwd',
+'select external_index_code, index_code, name, parent_index_code, ''''::text as parent_name, tree_level, tree_path, NAME::text as branch
+from tb_region where index_code = ''root00000000''') as region1(external_index_code VARCHAR, index_code VARCHAR, name VARCHAR, parent_index_code VARCHAR,
+parent_name VARCHAR, tree_level integer, tree_path VARCHAR, branch VARCHAR)
+
+UNION ALL
+
+SELECT r.external_index_code, r.index_code, r.name, v_region.index_code as parent_index_code, v_region.name as parent_name, r.tree_level, r.tree_path,
+v_region.branch || '/' || r.name
+from v_region
+join (select * from dblink('host=10.194.141.76 port=7017 dbname=xxdb user=user password=pwd',
+'select external_index_code, index_code, name, parent_index_code, tree_level, tree_path from tb_region where operate_delete_flag::text = ''false''::text')
+as region2(external_index_code VARCHAR, index_code VARCHAR, name VARCHAR, parent_index_code VARCHAR, tree_level integer, tree_path VARCHAR)) r
+on r.parent_index_code = v_region.index_code
+
+-- 2.2、非跨库创建递归视图方案
+CREATE OR REPLACE RECURSIVE VIEW v_region(region_code, region_name, parent_code, parent_name, dis_order, region_path, branch) AS (
+SELECT region1.region_code,
+region1.region_name,
+region1.parent_code::text,
+''::text as parent_name,
+region1.dis_order,
+region1.region_path,
+region1.region_name::text as branch
+FROM tb_region region1 where region_code = 'root00000000'
+
+UNION ALL
+
+SELECT r.region_code,
+r.region_name,
+v_region_1.region_code AS parent_code,
+v_region_1.region_name AS parent_name,
+r.dis_order,
+r.region_path,
+(((v_region_1.branch)::text || '/'::text) || (r.region_name)::text)
+FROM v_region v_region_1
+JOIN (SELECT region2.region_code,
+region2.region_name,
+region2.parent_code,
+region2.dis_order,
+region2.region_path
+FROM tb_region region2 WHERE region2.region_status = 0) r
+ON r.parent_code = v_region_1.region_code
+);

@@ -1,4 +1,4 @@
-package org.wjy.easycode.pojo.vo;
+package org.wjy.easycode.demo.pojo.vo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

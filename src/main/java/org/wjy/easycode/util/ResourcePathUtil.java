@@ -42,4 +42,25 @@ public class ResourcePathUtil {
     public static String getAllClassPath() {
         return System.getProperty("java.class.path");
     }
+
+    // 获取指定资源目录全路径
+    public static String getResourceFilePath(String resourceName) {
+        try {
+            if (!resourceName.contains("/")) {
+                resourceName = "/" + resourceName + "/";
+            }
+            String filePath = ResourcePathUtil.class.getResource(resourceName).getPath();
+            String os = System.getProperty("os.name");
+            if (os.toLowerCase().startsWith("win")) {
+                // win环境下路径格式转换，适用于javacv等c库调用时传入
+                // 如/D:/xx/x => D:\xx\x
+                filePath = filePath.replaceFirst("/", "");
+                filePath = filePath.replaceAll("/", "\\\\");
+            }
+            return filePath;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
 }

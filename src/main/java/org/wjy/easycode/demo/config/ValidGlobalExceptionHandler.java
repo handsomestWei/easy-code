@@ -1,4 +1,9 @@
-package org.wjy.easycode.config;
+package org.wjy.easycode.demo.config;
+
+import java.util.stream.Collectors;
+
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
 
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.validation.BindException;
@@ -6,10 +11,6 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import javax.validation.ConstraintViolation;
-import javax.validation.ConstraintViolationException;
-import java.util.stream.Collectors;
 
 /**
  * 捕获未处理的valid全局异常
@@ -23,7 +24,8 @@ public class ValidGlobalExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     @ResponseBody
     public String MethodArgumentNotValidExceptionHandler(MethodArgumentNotValidException e) {
-        String message = e.getBindingResult().getAllErrors().stream().map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining());
+        String message = e.getBindingResult().getAllErrors().stream()
+            .map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining());
         return "MethodArgumentNotValidException " + message;
     }
 
@@ -33,7 +35,8 @@ public class ValidGlobalExceptionHandler {
     @ExceptionHandler(BindException.class)
     @ResponseBody
     public String BindExceptionHandler(BindException e) {
-        String message = e.getBindingResult().getAllErrors().stream().map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining());
+        String message = e.getBindingResult().getAllErrors().stream()
+            .map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining());
         return "BindException " + message;
     }
 
@@ -43,7 +46,8 @@ public class ValidGlobalExceptionHandler {
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseBody
     public String ConstraintViolationExceptionHandler(ConstraintViolationException e) {
-        String message = e.getConstraintViolations().stream().map(ConstraintViolation::getMessage).collect(Collectors.joining());
+        String message =
+            e.getConstraintViolations().stream().map(ConstraintViolation::getMessage).collect(Collectors.joining());
         return "ConstraintViolationException " + message;
     }
 }

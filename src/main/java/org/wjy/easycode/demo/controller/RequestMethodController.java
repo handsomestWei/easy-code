@@ -1,9 +1,10 @@
-package org.wjy.easycode.controller;
+package org.wjy.easycode.demo.controller;
+
+import org.springframework.web.bind.annotation.*;
+import org.wjy.easycode.demo.pojo.vo.BaseReq;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.*;
-import org.wjy.easycode.pojo.vo.BaseReq;
 
 /**
  * springMVC处理各种http请求

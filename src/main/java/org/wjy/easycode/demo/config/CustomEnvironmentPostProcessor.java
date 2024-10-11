@@ -1,4 +1,7 @@
-package org.wjy.easycode.config;
+package org.wjy.easycode.demo.config;
+
+import java.io.IOException;
+import java.util.Properties;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.env.EnvironmentPostProcessor;
@@ -8,9 +11,6 @@ import org.springframework.core.env.PropertySource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
-import java.io.IOException;
-import java.util.Properties;
-
 /**
  * 读取外部自定义文件配置，加入到环境变量中。要加入到META-INF/spring.factories中，使用了spi机制
  */
@@ -18,9 +18,7 @@ public class CustomEnvironmentPostProcessor implements EnvironmentPostProcessor 
 
     private final Properties properties = new Properties();
 
-    private String[] profiles = {
-            "ctm-env.properties",
-    };
+    private String[] profiles = {"ctm-env.properties",};
 
     @Override
     public void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) {

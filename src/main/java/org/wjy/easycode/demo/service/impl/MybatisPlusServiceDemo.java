@@ -1,12 +1,13 @@
-package org.wjy.easycode.service.impl;
+package org.wjy.easycode.demo.service.impl;
 
-import org.springframework.stereotype.Service;
-import org.wjy.easycode.dao.IDemoDaoService;
-import org.wjy.easycode.pojo.entity.DemoEntity;
-
-import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+import org.wjy.easycode.demo.dao.IDemoDaoService;
+import org.wjy.easycode.demo.pojo.entity.DemoEntity;
 
 /**
  * 在业务层使用mybatis-plus IService

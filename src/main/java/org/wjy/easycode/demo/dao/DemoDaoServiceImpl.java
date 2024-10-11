@@ -1,8 +1,8 @@
-package org.wjy.easycode.dao;
+package org.wjy.easycode.demo.dao;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.wjy.easycode.pojo.entity.DemoEntity;
+import org.wjy.easycode.demo.pojo.entity.DemoEntity;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
